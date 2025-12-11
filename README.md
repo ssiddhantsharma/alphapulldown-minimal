@@ -1,5 +1,4 @@
-# AlphaPulldown SLURM Scripts and AlphaJudge Analysis:
-
+# AlphaPulldown SLURM Scripts
 Simple, clean SLURM scripts for running AlphaPulldown protein-protein interaction predictions, and perform alphajudge analysis on the predicted complexes.
 
 ## Overview
@@ -74,14 +73,3 @@ sbatch --array=1-XX --dependency=afterok:$step1_jobid step2_prediction.sh
 - **Step 2** uses pulldown mode (each bait tested against all candidates)
 - Protein names in .txt files must exactly match the FASTA header names (after special character replacement).
 
-## Alphajudge Analysis
-```bash
-module load conda
-conda activate alphajudge
-
- AlphaJudge interface scoring [-h] [--contact_thresh CONTACT_THRESH] [--pae_filter PAE_FILTER]
-                                    [--models_to_analyse {best,all}] [-r] [-o SUMMARY]
-                                    [paths ...]
-
-alphajudge /nfs/scistore20/praetgrp/XXX/ --model_to_analyse all -o summary.csv
-```
